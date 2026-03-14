@@ -3,200 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Sarala Birla University (SBU) Ranchi</title>
-    <!-- Tailwind CSS for modern styling -->
+    <title>SBU Ranchi - Review & Rewards</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1470');
-            background-size: cover;
-            background-position: center;
-        }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .modal-overlay { display: none; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); }
+        .reward-step { display: none; }
+        .reward-step.active { display: block; }
+        .progress-bar { width: 0%; transition: width 0.5s ease; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 scroll-smooth">
+<body class="bg-gray-50 text-gray-900">
 
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <!-- Header & Hero (Same as before) -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-blue-900 flex items-center gap-2">
-                <i class="fas fa-graduation-cap"></i> SBU RANCHI REVIEWS
-            </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-gray-600">
-                <a href="#about" class="hover:text-blue-700 transition">About SBU</a>
-                <a href="#survey" class="hover:text-blue-700 transition">Rate & Review</a>
-                <a href="#reviews" class="hover:text-blue-700 transition">Latest Feedback</a>
-            </nav>
-            <a href="#survey" class="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2 rounded-full text-sm font-bold transition shadow-md">Write a Review</a>
+            <div class="text-2xl font-bold text-blue-900"><i class="fas fa-graduation-cap"></i> SBU REVIEWS</div>
+            <a href="#survey" class="bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold">Write a Review</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-bg h-[70vh] flex items-center justify-center text-center text-white px-4">
-        <div>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">Your Voice Matters at <br><span class="text-blue-400">Sarala Birla University</span></h1>
-            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-90">Helping students share their experiences about academics, campus life, and career growth at SBU Ranchi.</p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#survey" class="bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-lg font-bold shadow-xl transition transform hover:-translate-y-1">Start Review Now</a>
-                <a href="#reviews" class="bg-white/10 hover:bg-white/20 backdrop-blur-md px-10 py-4 rounded-lg font-bold border border-white/30 transition">Read Student Reviews</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <img src="https://images.unsplash.com/photo-1523050335392-9ae953569528?auto=format&fit=crop&q=80&w=1470" alt="SBU Campus" class="rounded-2xl shadow-2xl w-full h-96 object-cover border-8 border-gray-100">
-            </div>
-            <div class="space-y-6">
-                <span class="text-blue-700 font-bold tracking-widest uppercase text-sm">Institution Overview</span>
-                <h2 class="text-4xl font-extrabold text-gray-800">Sarala Birla University</h2>
-                <p class="text-gray-600 text-lg leading-relaxed">
-                    Located in the heart of Ranchi, Jharkhand, Sarala Birla University is a world-class institution known for its commitment to holistic education and character building. Established by the prestigious Birla Group, it offers cutting-edge programs in Engineering, Management, and Humanities.
-                </p>
-                <div class="grid grid-cols-2 gap-6 pt-4">
-                    <div class="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-700">
-                        <div class="text-2xl font-bold text-blue-900">4.5/5</div>
-                        <div class="text-gray-500 text-sm">Avg. Student Rating</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-xl border-l-4 border-green-700">
-                        <div class="text-2xl font-bold text-green-900">92%</div>
-                        <div class="text-gray-500 text-sm">Placement Success</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="bg-blue-900 text-white py-20 text-center">
+        <h1 class="text-4xl font-bold mb-4">Review SBU & Win Campus Rewards</h1>
+        <p class="opacity-80">Share your honest feedback and stand a chance to win exclusive SBU merchandise.</p>
     </section>
 
     <!-- Review Form Section -->
-    <section id="survey" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-16 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-8 text-gray-100 -mr-10 -mt-10">
-                    <i class="fas fa-edit text-9xl"></i>
+    <section id="survey" class="py-16">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+                <h2 class="text-2xl font-bold mb-6">Step 1: Your Feedback</h2>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block font-semibold mb-2">Overall Rating</label>
+                        <div class="text-yellow-400 text-2xl flex gap-1">
+                            <i class="fas fa-star cursor-pointer"></i><i class="fas fa-star cursor-pointer"></i><i class="fas fa-star cursor-pointer"></i><i class="fas fa-star cursor-pointer"></i><i class="far fa-star cursor-pointer"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-2">Describe your experience</label>
+                        <textarea id="reviewText" rows="4" class="w-full bg-gray-50 border rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" placeholder="What do you think about the faculty and campus?"></textarea>
+                    </div>
+                    <button onclick="startRewardFlow()" class="w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-xl font-bold text-lg transition shadow-lg">Submit Review & Claim Reward</button>
                 </div>
-                
-                <h2 class="text-3xl font-bold text-gray-800 mb-2 relative">Submit Your Review</h2>
-                <p class="text-gray-500 mb-12 relative">Select your ratings for various categories below.</p>
-
-                <form class="space-y-10 relative">
-                    <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
-                        <!-- Rating Categories -->
-                        <div class="space-y-6">
-                            <div class="flex items-center justify-between border-b pb-2">
-                                <label class="font-semibold text-gray-700">Academics</label>
-                                <div class="text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-300"></i></div>
-                            </div>
-                            <div class="flex items-center justify-between border-b pb-2">
-                                <label class="font-semibold text-gray-700">Infrastructure</label>
-                                <div class="text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            </div>
-                        </div>
-                        <div class="space-y-6">
-                            <div class="flex items-center justify-between border-b pb-2">
-                                <label class="font-semibold text-gray-700">Placements</label>
-                                <div class="text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-300"></i><i class="far fa-star text-gray-300"></i></div>
-                            </div>
-                            <div class="flex items-center justify-between border-b pb-2">
-                                <label class="font-semibold text-gray-700">Campus Life</label>
-                                <div class="text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-300"></i></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <label class="block font-bold text-gray-800">Review Title</label>
-                        <input type="text" placeholder="e.g. Excellent placement opportunities" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition">
-                    </div>
-
-                    <div class="space-y-4">
-                        <label class="block font-bold text-gray-800">Your Detailed Feedback</label>
-                        <textarea rows="5" placeholder="Share your experience about faculty, events, and campus life..." class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-blue-500 outline-none transition"></textarea>
-                    </div>
-
-                    <button class="w-full bg-blue-900 hover:bg-black text-white py-5 rounded-xl font-bold text-lg shadow-lg transition-all transform hover:scale-[1.01] uppercase tracking-widest">Post Public Review</button>
-                </form>
             </div>
         </div>
     </section>
 
-    <!-- Student Reviews Section -->
-    <section id="reviews" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-                <div>
-                    <span class="text-blue-700 font-bold uppercase tracking-widest text-xs">Testimonials</span>
-                    <h2 class="text-4xl font-extrabold text-gray-800 mt-2">What Students are Saying</h2>
-                </div>
-                <div class="flex gap-2">
-                    <button class="p-3 border rounded-full hover:bg-gray-100 transition"><i class="fas fa-arrow-left"></i></button>
-                    <button class="p-3 border rounded-full hover:bg-gray-100 transition"><i class="fas fa-arrow-right"></i></button>
-                </div>
-            </div>
+    <!-- Reward Modal System -->
+    <div id="rewardModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl relative overflow-hidden">
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-2xl hover:border-blue-100 transition-all group">
-                    <div class="flex items-center mb-6">
-                        <img src="https://i.pravatar.cc/150?u=a1" class="w-14 h-14 rounded-full mr-4 border-4 border-white shadow-md">
-                        <div>
-                            <h4 class="font-bold text-gray-800">Aryan Mahato</h4>
-                            <p class="text-xs text-blue-600 font-semibold uppercase tracking-tighter">B.Tech CS Student</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-400 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-gray-600 italic leading-relaxed">"The coding culture at SBU is growing rapidly. The campus infrastructure is very modern and the library resources are excellent."</p>
+            <!-- Step 1: WhatsApp Share -->
+            <div id="stepShare" class="reward-step active text-center">
+                <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Review Submitted!</h3>
+                <p class="text-gray-500 mb-6">To unlock your SBU Gift Reward, share this review page with <strong>5 friends or groups</strong> on WhatsApp.</p>
+                
+                <div class="bg-gray-100 rounded-full h-4 mb-6 overflow-hidden">
+                    <div id="shareProgress" class="progress-bar h-full bg-green-500"></div>
                 </div>
 
-                <!-- Review 2 -->
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-2xl hover:border-blue-100 transition-all">
-                    <div class="flex items-center mb-6">
-                        <img src="https://i.pravatar.cc/150?u=a2" class="w-14 h-14 rounded-full mr-4 border-4 border-white shadow-md">
-                        <div>
-                            <h4 class="font-bold text-gray-800">Priya Sharma</h4>
-                            <p class="text-xs text-blue-600 font-semibold uppercase tracking-tighter">MBA Final Year</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-400 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-300"></i></div>
-                    <p class="text-gray-600 italic leading-relaxed">"SBU provides a great platform for networking. The guest lectures from industry leaders were a highlight for me. Highly recommend for Management!"</p>
-                </div>
+                <button onclick="handleShare()" class="w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition">
+                    <i class="fab fa-whatsapp text-2xl"></i> Share on WhatsApp
+                </button>
+                <p class="text-xs text-gray-400 mt-4 italic">Complete the bar to proceed...</p>
+            </div>
 
-                <!-- Review 3 -->
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-2xl hover:border-blue-100 transition-all">
-                    <div class="flex items-center mb-6">
-                        <img src="https://i.pravatar.cc/150?u=a3" class="w-14 h-14 rounded-full mr-4 border-4 border-white shadow-md">
-                        <div>
-                            <h4 class="font-bold text-gray-800">Sneha K.</h4>
-                            <p class="text-xs text-blue-600 font-semibold uppercase tracking-tighter">BBA Student</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-400 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-gray-600 italic leading-relaxed">"The campus life here is very vibrant. From tech-fests to cultural nights, there is always something exciting happening. Great environment for growth."</p>
+            <!-- Step 2: Data Entry -->
+            <div id="stepData" class="reward-step text-center">
+                <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Share Complete!</h3>
+                <p class="text-gray-500 mb-6">Please enter your details to receive your reward coupon via SMS.</p>
+                
+                <div class="space-y-4 text-left">
+                    <input type="text" id="userName" placeholder="Full Name" class="w-full border rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="tel" id="userPhone" placeholder="Mobile Number" class="w-full border rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500">
+                    <button onclick="submitDetails()" class="w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-xl font-bold transition">Claim Reward Now</button>
                 </div>
             </div>
+
+            <!-- Step 3: Success -->
+            <div id="stepSuccess" class="reward-step text-center">
+                <div class="w-20 h-20 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-3xl shadow-lg animate-bounce">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Request Submitted!</h3>
+                <p class="text-gray-600 mb-6">Thank you for your feedback. Our team will verify your referral and contact you within 24-48 hours.</p>
+                <button onclick="closeModal()" class="w-full bg-gray-100 text-gray-600 py-3 rounded-xl font-bold hover:bg-gray-200 transition">Close</button>
+            </div>
+
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-blue-950 text-white py-16">
-        <div class="container mx-auto px-6 text-center">
-            <div class="text-3xl font-bold mb-6 tracking-tighter">SBU RANCHI <span class="text-blue-500">REVIEWS</span></div>
-            <p class="text-blue-200/60 max-w-lg mx-auto mb-10 text-sm">Empowering prospective students with authentic feedback from the Sarala Birla University community. Build your future with the right choice.</p>
-            <div class="flex justify-center space-x-8 mb-12">
-                <a href="#" class="hover:text-blue-400 transition text-2xl"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="hover:text-blue-400 transition text-2xl"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="hover:text-blue-400 transition text-2xl"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="border-t border-white/10 pt-8 text-xs text-blue-200/40 uppercase tracking-widest">
-                &copy; 2024 Sarala Birla University Review Portal. Not affiliated officially with the university.
-            </div>
-        </div>
-    </footer>
+    <script>
+        let shareCount = 0;
+        const totalRequired = 5;
 
+        function startRewardFlow() {
+            const review = document.getElementById('reviewText').value;
+            if(review.length < 10) {
+                alert("Please write a bit more about your experience first!");
+                return;
+            }
+            document.getElementById('rewardModal').style.display = 'flex';
+        }
+
+        function handleShare() {
+            // Open WhatsApp with a custom message
+            const text = encodeURIComponent("I just reviewed Sarala Birla University! Check it out here and get your reward: " + window.location.href);
+            window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+
+            // Simulate progress
+            shareCount++;
+            const percent = (shareCount / totalRequired) * 100;
+            document.getElementById('shareProgress').style.width = percent + '%';
+
+            if (shareCount >= totalRequired) {
+                setTimeout(() => {
+                    showStep('stepData');
+                }, 800);
+            }
+        }
+
+        function submitDetails() {
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+
+            if(!name || !phone) {
+                alert("Please fill in your name and mobile number.");
+                return;
+            }
+            
+            // Here you would typically send data to a server
+            showStep('stepSuccess');
+        }
+
+        function showStep(stepId) {
+            document.querySelectorAll('.reward-step').forEach(step => step.classList.remove('active'));
+            document.getElementById(stepId).classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('rewardModal').style.display = 'none';
+            // Reset for next time if needed
+            shareCount = 0;
+            document.getElementById('shareProgress').style.width = '0%';
+            showStep('stepShare');
+        }
+    </script>
 </body>
-      </html>
+                            </html>
