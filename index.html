@@ -4,43 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SBU Student Feedback Survey</title>
-    <!-- Tailwind CSS for modern styling -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome (Icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --sbu-blue: #003366;
-            --sbu-light-blue: #e6efff;
         }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .bg-sbu { background-color: var(--sbu-blue); }
         .text-sbu { color: var(--sbu-blue); }
-        .hero-overlay { background: rgba(0, 51, 102, 0.7); }
-        .question-card:nth-child(even) { background-color: #f9fafb; }
+        .hero-overlay { background: rgba(0, 51, 102, 0.75); }
         
-        /* Smooth loading for images */
-        img { background-color: #f3f4f6; }
+        /* CSS to handle broken images - adds a gray background and text if image fails */
+        img {
+            background-color: #e5e7eb;
+            position: relative;
+        }
+        img:after { 
+            content: "Image Loading...";
+            display: block;
+            position: absolute;
+            top: 50%; width: 100%; text-align: center;
+            font-size: 12px; color: #666;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white border-b-4 border-blue-900 sticky top-0 z-50 shadow-sm">
+    <header class="bg-white border-b-4 border-blue-900 sticky top-0 z-50 shadow-md">
         <div class="container mx-auto px-4 py-4 text-center">
             <h1 class="text-2xl md:text-3xl font-bold text-sbu uppercase tracking-tight">
-                Sarala Birla University – Student Feedback Survey
+                Sarala Birla University
             </h1>
             <p class="text-sm text-red-600 font-medium mt-1">
-                <i class="fas fa-info-circle mr-1"></i> Official Student Feedback Portal
+                Official Student Feedback Portal
             </p>
         </div>
     </header>
 
     <!-- Hero Banner -->
-    <section class="relative h-64 md:h-96 overflow-hidden">
-        <!-- Reliable University Image -->
-        <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=1470&auto=format&fit=crop" 
+    <section class="relative h-64 md:h-80 overflow-hidden bg-blue-900">
+        <!-- Main University Image (Reliable Source) -->
+        <img src="https://www.commonapp.org/static/298485290b206450f3847e1140027663/university-of-pittsburgh_940.jpg" 
              alt="University Campus" class="w-full h-full object-cover">
         <div class="absolute inset-0 hero-overlay flex items-center justify-center">
             <div class="text-center text-white px-4">
@@ -50,94 +58,69 @@
         </div>
     </section>
 
-    <!-- Visual Sections -->
+    <!-- Visual Sections (Using Icons instead of images for better reliability) -->
     <section class="container mx-auto px-4 py-12">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden text-center p-4 border-b-4 border-blue-500">
-                <!-- Students/Campus Image -->
-                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=600&auto=format&fit=crop" 
-                     alt="Campus" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="font-bold text-lg">Vibrant Campus</h3>
+            <!-- Card 1 -->
+            <div class="bg-white rounded-xl shadow-lg p-8 text-center border-b-4 border-blue-600">
+                <div class="w-20 h-20 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-university text-3xl"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-2">Vibrant Campus</h3>
+                <p class="text-gray-600 text-sm">State-of-the-art infrastructure and green environment.</p>
             </div>
-            <div class="bg-white rounded-xl shadow-md overflow-hidden text-center p-4 border-b-4 border-blue-500">
-                <!-- Library Image -->
-                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=600&auto=format&fit=crop" 
-                     alt="Library" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="font-bold text-lg">Digital Library</h3>
+            <!-- Card 2 -->
+            <div class="bg-white rounded-xl shadow-lg p-8 text-center border-b-4 border-blue-600">
+                <div class="w-20 h-20 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-book-reader text-3xl"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-2">Digital Library</h3>
+                <p class="text-gray-600 text-sm">Access to thousands of journals and digital resources.</p>
             </div>
-            <div class="bg-white rounded-xl shadow-md overflow-hidden text-center p-4 border-b-4 border-blue-500">
-                <!-- Classroom Image -->
-                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=600&auto=format&fit=crop" 
-                     alt="Classroom" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="font-bold text-lg">Modern Classrooms</h3>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-xl shadow-lg p-8 text-center border-b-4 border-blue-600">
+                <div class="w-20 h-20 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-chalkboard-teacher text-3xl"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-2">Modern Classrooms</h3>
+                <p class="text-gray-600 text-sm">Smart classes and advanced learning technology.</p>
             </div>
         </div>
     </section>
 
     <!-- Feedback Survey Form -->
     <section class="container mx-auto px-4 max-w-4xl mb-20">
-        <form id="surveyForm" class="bg-white shadow-2xl rounded-2xl overflow-hidden">
+        <form id="surveyForm" class="bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-100">
             <div class="bg-sbu p-6 text-white text-center">
-                <h2 class="text-xl font-bold">Feedback Questionnaire</h2>
-                <p class="text-sm opacity-75">Please answer all questions based on your experience</p>
+                <h2 class="text-xl font-bold">Student Feedback Questionnaire</h2>
+                <p class="text-sm opacity-75">Tell us about your campus experience</p>
             </div>
 
-            <div class="p-6 md:p-10 space-y-8">
-                <!-- Question Template Start -->
-                <script>
-                    const questions = [
-                        "How would you rate the campus infrastructure?",
-                        "How helpful are the faculty members?",
-                        "How is the library facility?",
-                        "How satisfied are you with the placement support?",
-                        "How do you rate classroom facilities?",
-                        "How good are the extracurricular activities?",
-                        "How is the hostel facility?",
-                        "How safe is the campus environment?",
-                        "How helpful is the administration staff?",
-                        "Would you recommend Sarala Birla University to others?"
-                    ];
-                    const options = ["Excellent", "Good", "Average", "Poor"];
-                    
-                    questions.forEach((q, i) => {
-                        document.write(`
-                            <div class="question-card p-4 rounded-lg border border-gray-100">
-                                <p class="font-bold text-gray-800 mb-4">${i+1}. ${q}</p>
-                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                    ${options.map(opt => `
-                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
-                                            <input type="radio" name="q${i}" value="${opt}" class="w-4 h-4 text-blue-900" required>
-                                            <span class="text-sm font-medium">${opt}</span>
-                                        </label>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        `);
-                    });
-                </script>
-                <!-- Question Template End -->
+            <div class="p-6 md:p-10 space-y-6">
+                <!-- JavaScript Questions Generator -->
+                <div id="questionsContainer" class="space-y-6"></div>
 
-                <!-- Contact Section Inside Form -->
+                <!-- Personal Details -->
                 <div class="mt-12 pt-8 border-t-2 border-dashed border-gray-200">
                     <h3 class="text-xl font-bold text-sbu mb-6"><i class="fas fa-user-circle mr-2"></i>Personal Details</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Full Name</label>
-                            <input type="text" required class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your name">
+                            <input type="text" required class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your name">
                         </div>
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Phone Number</label>
-                            <input type="tel" required class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contact number">
+                            <input type="tel" required class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contact no.">
                         </div>
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Email (Optional)</label>
-                            <input type="email" class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500" placeholder="Email address">
+                            <input type="email" class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500" placeholder="Email ID">
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-10">
-                    <button type="submit" class="w-full bg-sbu hover:bg-blue-800 text-white font-bold py-4 rounded-xl shadow-lg transition-transform transform hover:scale-[1.01] uppercase tracking-wider">
+                <div class="pt-8">
+                    <button type="submit" class="w-full bg-sbu hover:bg-blue-800 text-white font-bold py-4 rounded-xl shadow-lg transition-all active:scale-95 uppercase">
                         Submit Feedback
                     </button>
                 </div>
@@ -145,60 +128,52 @@
         </form>
     </section>
 
-    <!-- Reviews Section -->
-    <section class="bg-gray-100 py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center text-sbu mb-10">What Students Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-yellow-400">
-                    <div class="text-yellow-400 mb-2">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-700 italic">"Great campus environment and supportive faculty."</p>
-                    <p class="mt-4 font-bold text-sm text-gray-500 text-right">- B.Tech Student</p>
-                </div>
-                <!-- Review 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-yellow-400">
-                    <div class="text-yellow-400 mb-2">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-300"></i>
-                    </div>
-                    <p class="text-gray-700 italic">"Good infrastructure and peaceful surroundings."</p>
-                    <p class="mt-4 font-bold text-sm text-gray-500 text-right">- MBA Student</p>
-                </div>
-                <!-- Review 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-yellow-400">
-                    <div class="text-yellow-400 mb-2">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-700 italic">"Nice learning atmosphere and helpful teachers."</p>
-                    <p class="mt-4 font-bold text-sm text-gray-500 text-right">- Pharmacy Student</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-sbu text-white py-12 mt-auto">
+    <footer class="bg-sbu text-white py-10">
         <div class="container mx-auto px-4 text-center">
-            <div class="mb-6">
-                <i class="fas fa-university text-4xl opacity-50"></i>
-            </div>
             <p class="text-lg font-semibold">Sarala Birla University</p>
-            <p class="text-sm opacity-60 mt-2">Ranchi, Jharkhand, India</p>
-            <div class="mt-8 pt-8 border-t border-white/10">
-                <p class="text-xs tracking-widest uppercase opacity-75">
-                    Internal Student Feedback System
-                </p>
-            </div>
+            <p class="text-sm opacity-60">Ranchi, Jharkhand, India</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Submission Logic -->
     <script>
+        // Generate Questions
+        const questions = [
+            "Quality of classroom teaching?",
+            "Availability of faculty for guidance?",
+            "Library resources and environment?",
+            "Campus cleanliness and maintenance?",
+            "Laboratory and lab equipment quality?",
+            "Sports and extracurricular facilities?",
+            "Canteen and food hygiene?",
+            "Placement and career support?",
+            "Safety and security on campus?",
+            "Overall satisfaction with SBU?"
+        ];
+        const options = ["Excellent", "Good", "Average", "Poor"];
+        const container = document.getElementById('questionsContainer');
+
+        questions.forEach((q, i) => {
+            const div = document.createElement('div');
+            div.className = "p-4 rounded-lg bg-gray-50 border border-gray-200";
+            div.innerHTML = `
+                <p class="font-bold text-gray-800 mb-3">${i+1}. ${q}</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                    ${options.map(opt => `
+                        <label class="flex items-center p-2 bg-white rounded border cursor-pointer hover:bg-blue-50 transition-colors">
+                            <input type="radio" name="q${i}" value="${opt}" class="mr-2" required>
+                            <span class="text-sm">${opt}</span>
+                        </label>
+                    `).join('')}
+                </div>
+            `;
+            container.appendChild(div);
+        });
+
+        // Form Submission
         document.getElementById('surveyForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert("✅ Thank you for submitting your feedback!");
+            alert("✅ Feedback Submitted Successfully!");
             this.reset();
             window.scrollTo({top: 0, behavior: 'smooth'});
         });
