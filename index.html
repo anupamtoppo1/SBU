@@ -3,160 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBU Ranchi - Review & Rewards</title>
+    <title>SBU Student Feedback Survey</title>
+    <!-- Tailwind CSS for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .modal-overlay { display: none; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); }
-        .reward-step { display: none; }
-        .reward-step.active { display: block; }
-        .progress-bar { width: 0%; transition: width 0.5s ease; }
+        :root {
+            --sbu-blue: #003366;
+            --sbu-light-blue: #e6efff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .bg-sbu { background-color: var(--sbu-blue); }
+        .text-sbu { color: var(--sbu-blue); }
+        .hero-overlay { background: rgba(0, 51, 102, 0.7); }
+        .question-card:nth-child(even) { background-color: #f9fafb; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Header & Hero (Same as before) -->
-    <header class="bg-white shadow-sm sticky top-0 z-40">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-blue-900"><i class="fas fa-graduation-cap"></i> SBU REVIEWS</div>
-            <a href="#survey" class="bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold">Write a Review</a>
+    <!-- Header -->
+    <header class="bg-white border-b-4 border-blue-900 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 text-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-sbu uppercase tracking-tight">
+                Sarala Birla University – Student Feedback Survey
+            </h1>
+            <p class="text-sm text-red-600 font-medium mt-1">
+                <i class="fas fa-info-circle mr-1"></i> This is an unofficial student survey for feedback purposes.
+            </p>
         </div>
     </header>
 
-    <section class="bg-blue-900 text-white py-20 text-center">
-        <h1 class="text-4xl font-bold mb-4">Review SBU & Win Campus Rewards</h1>
-        <p class="opacity-80">Share your honest feedback and stand a chance to win exclusive SBU merchandise.</p>
+    <!-- Hero Banner -->
+    <section class="relative h-64 md:h-96 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=1470" 
+             alt="University Campus" class="w-full h-full object-cover">
+        <div class="absolute inset-0 hero-overlay flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-2">Shaping the Future</h2>
+                <p class="text-lg md:text-xl opacity-90">Your feedback helps us build a better campus experience.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Review Form Section -->
-    <section id="survey" class="py-16">
-        <div class="container mx-auto px-6 max-w-2xl">
-            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                <h2 class="text-2xl font-bold mb-6">Step 1: Your Feedback</h2>
-                <div class="space-y-6">
-                    <div>
-                        <label class="block font-semibold mb-2">Overall Rating</label>
-                        <div class="text-yellow-400 text-2xl flex gap-1">
-                            <i class="fas fa-star cursor-pointer"></i><i class="fas fa-star cursor-pointer"></i><i class="fas fa-star cursor-pointer"></i><i class="fas fa-star cursor-pointer"></i><i class="far fa-star cursor-pointer"></i>
+    <!-- Visual Sections (Icons/Small Images) -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden text-center p-4 border-b-4 border-blue-500">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=600" alt="Campus" class="w-full h-40 object-cover rounded-lg mb-4">
+                <h3 class="font-bold text-lg">Vibrant Campus</h3>
+            </div>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden text-center p-4 border-b-4 border-blue-500">
+                <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=600" alt="Library" class="w-full h-40 object-cover rounded-lg mb-4">
+                <h3 class="font-bold text-lg">Digital Library</h3>
+            </div>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden text-center p-4 border-b-4 border-blue-500">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=600" alt="Classroom" class="w-full h-40 object-cover rounded-lg mb-4">
+                <h3 class="font-bold text-lg">Modern Classrooms</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Survey Form -->
+    <section class="container mx-auto px-4 max-w-4xl mb-20">
+        <form id="surveyForm" class="bg-white shadow-2xl rounded-2xl overflow-hidden">
+            <div class="bg-sbu p-6 text-white text-center">
+                <h2 class="text-xl font-bold">Feedback Questionnaire</h2>
+                <p class="text-sm opacity-75">Please answer all questions based on your experience</p>
+            </div>
+
+            <div class="p-6 md:p-10 space-y-8">
+                <!-- Question Template Start -->
+                <script>
+                    const questions = [
+                        "How would you rate the campus infrastructure?",
+                        "How helpful are the faculty members?",
+                        "How is the library facility?",
+                        "How satisfied are you with the placement support?",
+                        "How do you rate classroom facilities?",
+                        "How good are the extracurricular activities?",
+                        "How is the hostel facility?",
+                        "How safe is the campus environment?",
+                        "How helpful is the administration staff?",
+                        "Would you recommend Sarala Birla University to others?"
+                    ];
+                    const options = ["Excellent", "Good", "Average", "Poor"];
+                    
+                    questions.forEach((q, i) => {
+                        document.write(`
+                            <div class="question-card p-4 rounded-lg border border-gray-100">
+                                <p class="font-bold text-gray-800 mb-4">${i+1}. ${q}</p>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    ${options.map(opt => `
+                                        <label class="flex items-center space-x-2 cursor-pointer hover:text-blue-600">
+                                            <input type="radio" name="q${i}" value="${opt}" class="w-4 h-4 text-blue-900" required>
+                                            <span class="text-sm font-medium">${opt}</span>
+                                        </label>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+                <!-- Question Template End -->
+
+                <!-- Contact Section Inside Form -->
+                <div class="mt-12 pt-8 border-t-2 border-dashed border-gray-200">
+                    <h3 class="text-xl font-bold text-sbu mb-6"><i class="fas fa-user-circle mr-2"></i>Personal Details</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Full Name</label>
+                            <input type="text" required class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" required class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contact number">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Email (Optional)</label>
+                            <input type="email" class="w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500" placeholder="Email address">
                         </div>
                     </div>
-                    <div>
-                        <label class="block font-semibold mb-2">Describe your experience</label>
-                        <textarea id="reviewText" rows="4" class="w-full bg-gray-50 border rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500" placeholder="What do you think about the faculty and campus?"></textarea>
+                </div>
+
+                <div class="pt-10">
+                    <button type="submit" class="w-full bg-sbu hover:bg-blue-800 text-white font-bold py-4 rounded-xl shadow-lg transition-transform transform hover:scale-[1.01] uppercase tracking-wider">
+                        Submit Feedback
+                    </button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center text-sbu mb-10">What Students Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-yellow-400">
+                    <div class="text-yellow-400 mb-2">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <button onclick="startRewardFlow()" class="w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-xl font-bold text-lg transition shadow-lg">Submit Review & Claim Reward</button>
+                    <p class="text-gray-700 italic">"Great campus environment and supportive faculty."</p>
+                    <p class="mt-4 font-bold text-sm text-gray-500 text-right">- Student Review 1</p>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-yellow-400">
+                    <div class="text-yellow-400 mb-2">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-300"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"Good infrastructure and peaceful surroundings."</p>
+                    <p class="mt-4 font-bold text-sm text-gray-500 text-right">- Student Review 2</p>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-yellow-400">
+                    <div class="text-yellow-400 mb-2">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"Nice learning atmosphere and helpful teachers."</p>
+                    <p class="mt-4 font-bold text-sm text-gray-500 text-right">- Student Review 3</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Reward Modal System -->
-    <div id="rewardModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl relative overflow-hidden">
-            
-            <!-- Step 1: WhatsApp Share -->
-            <div id="stepShare" class="reward-step active text-center">
-                <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Review Submitted!</h3>
-                <p class="text-gray-500 mb-6">To unlock your SBU Gift Reward, share this review page with <strong>5 friends or groups</strong> on WhatsApp.</p>
-                
-                <div class="bg-gray-100 rounded-full h-4 mb-6 overflow-hidden">
-                    <div id="shareProgress" class="progress-bar h-full bg-green-500"></div>
-                </div>
-
-                <button onclick="handleShare()" class="w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition">
-                    <i class="fab fa-whatsapp text-2xl"></i> Share on WhatsApp
-                </button>
-                <p class="text-xs text-gray-400 mt-4 italic">Complete the bar to proceed...</p>
+    <!-- Footer -->
+    <footer class="bg-sbu text-white py-12 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6">
+                <i class="fas fa-university text-4xl opacity-50"></i>
             </div>
-
-            <!-- Step 2: Data Entry -->
-            <div id="stepData" class="reward-step text-center">
-                <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
-                    <i class="fas fa-gift"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Share Complete!</h3>
-                <p class="text-gray-500 mb-6">Please enter your details to receive your reward coupon via SMS.</p>
-                
-                <div class="space-y-4 text-left">
-                    <input type="text" id="userName" placeholder="Full Name" class="w-full border rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500">
-                    <input type="tel" id="userPhone" placeholder="Mobile Number" class="w-full border rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500">
-                    <button onclick="submitDetails()" class="w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-xl font-bold transition">Claim Reward Now</button>
-                </div>
+            <p class="text-lg font-semibold">Sarala Birla University</p>
+            <p class="text-sm opacity-60 mt-2">Ranchi, Jharkhand, India</p>
+            <div class="mt-8 pt-8 border-t border-white/10">
+                <p class="text-xs tracking-widest uppercase opacity-75">
+                    Student Feedback Project – Not affiliated with Sarala Birla University.
+                </p>
             </div>
-
-            <!-- Step 3: Success -->
-            <div id="stepSuccess" class="reward-step text-center">
-                <div class="w-20 h-20 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-3xl shadow-lg animate-bounce">
-                    <i class="fas fa-check"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Request Submitted!</h3>
-                <p class="text-gray-600 mb-6">Thank you for your feedback. Our team will verify your referral and contact you within 24-48 hours.</p>
-                <button onclick="closeModal()" class="w-full bg-gray-100 text-gray-600 py-3 rounded-xl font-bold hover:bg-gray-200 transition">Close</button>
-            </div>
-
         </div>
-    </div>
+    </footer>
 
+    <!-- JavaScript for Submission Logic -->
     <script>
-        let shareCount = 0;
-        const totalRequired = 5;
-
-        function startRewardFlow() {
-            const review = document.getElementById('reviewText').value;
-            if(review.length < 10) {
-                alert("Please write a bit more about your experience first!");
-                return;
-            }
-            document.getElementById('rewardModal').style.display = 'flex';
-        }
-
-        function handleShare() {
-            // Open WhatsApp with a custom message
-            const text = encodeURIComponent("I just reviewed Sarala Birla University! Check it out here and get your reward: " + window.location.href);
-            window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
-
-            // Simulate progress
-            shareCount++;
-            const percent = (shareCount / totalRequired) * 100;
-            document.getElementById('shareProgress').style.width = percent + '%';
-
-            if (shareCount >= totalRequired) {
-                setTimeout(() => {
-                    showStep('stepData');
-                }, 800);
-            }
-        }
-
-        function submitDetails() {
-            const name = document.getElementById('userName').value;
-            const phone = document.getElementById('userPhone').value;
-
-            if(!name || !phone) {
-                alert("Please fill in your name and mobile number.");
-                return;
-            }
+        document.getElementById('surveyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // Here you would typically send data to a server
-            showStep('stepSuccess');
-        }
-
-        function showStep(stepId) {
-            document.querySelectorAll('.reward-step').forEach(step => step.classList.remove('active'));
-            document.getElementById(stepId).classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('rewardModal').style.display = 'none';
-            // Reset for next time if needed
-            shareCount = 0;
-            document.getElementById('shareProgress').style.width = '0%';
-            showStep('stepShare');
-        }
+            // Custom modern Alert
+            alert("✅ Thank you for submitting your feedback!");
+            
+            // Optionally clear the form
+            this.reset();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
     </script>
 </body>
-                            </html>
+            </html>
